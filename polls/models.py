@@ -16,27 +16,25 @@ class Poll(models.Model):
 
 
 class Question(models.Model):
-    TEXT = 'text'
-    SINGLE_CHOICE = 'single_choice'
-    MULTIPLE_CHOICE = 'multiple_choice'
-
-    QUESTION_TYPES = [
-        (TEXT, 'Ответ текстом'),
-        (SINGLE_CHOICE, 'Выбор одного варианта'),
-        (MULTIPLE_CHOICE, 'Выбор нескольких вариантов')
-    ]
+    class QuestionTypes(models.TextChoices):
+        TEXT = 'text'
+        SINGLE_CHOICE = 'single_choice'
+        MULTIPLE_CHOICE = 'multiple_choice'
 
     poll = models.ForeignKey(
         Poll,
         related_name='questions',
         on_delete=models.CASCADE,
         verbose_name='Опрос',
-        )
+    )
 
     text = models.CharField('Текст вопроса', max_length=200)
 
     question_type = models.CharField(
-        'Тип вопроса', max_length=20, choices=QUESTION_TYPES)
+        'Тип вопроса',
+        max_length=20,
+        choices=QuestionTypes.choices,
+    )
 
     class Meta:
         verbose_name = 'Вопрос'
