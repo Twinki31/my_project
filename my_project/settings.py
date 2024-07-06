@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@dm=cujn1r_uvs)o$-^sluuk*(vk*o@g87unid$_u=&-+=uyqo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',   # Название вашей базы данных
+        'USER': 'postgres',       # Имя пользователя PostgreSQL
+        'PASSWORD': 'postgres',  # Пароль пользователя PostgreSQL
+        'HOST': 'pgdb',    
+        'PORT': '5432',         # Порт, на котором запущен PostgreSQL (обычно 5432)
     }
 }
 
