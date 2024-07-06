@@ -82,8 +82,9 @@ DATABASES = {
         'NAME': 'postgres',   # Название вашей базы данных
         'USER': 'postgres',       # Имя пользователя PostgreSQL
         'PASSWORD': 'postgres',  # Пароль пользователя PostgreSQL
-        'HOST': 'pgdb',    
-        'PORT': '5432',         # Порт, на котором запущен PostgreSQL (обычно 5432)
+        'HOST': 'pgdb',
+        # Порт, на котором запущен PostgreSQL (обычно 5432)
+        'PORT': '5432',
     }
 }
 
