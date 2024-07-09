@@ -1,6 +1,6 @@
 # surveys/admin.py
 from django.contrib import admin
-from .models import Poll, Question
+from .models import Poll, Question, Answer
 
 
 class QuestionInline(admin.TabularInline):
@@ -20,5 +20,10 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ('text',)
 
 
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = ('user_id', 'question', 'text')
+
+
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(Answer, AnswerAdmin)

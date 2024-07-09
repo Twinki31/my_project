@@ -42,3 +42,17 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Answer(models.Model):
+    user_id = models.IntegerField()
+    question = models.ForeignKey(Question, on_delete=models.CASCADE,
+                                 related_name='answers')
+    text = models.TextField()
+
+    class Meta:
+        verbose_name = 'Ответ'
+        verbose_name_plural = 'Ответы'
+
+    def __str__(self):
+        return f" Пользователь {self.user_id} ответил '{self.question.text}'"
