@@ -63,6 +63,26 @@ python manage.py runserver
 Проверить ЛОГИ docker logs <container_id>
 Если что, там будет ошибка, обычно она пишется в конце
 
+## Команды которые могут пригодиться для Docker'a
+Запуск контейнера: docker run <options> <image>
+
+Запуск существующего (остановленного) контейнера: docker start <container_id>
+
+Остановка запущенного контейнера: docker stop <container_id>
+
+Перезапуск контейнера: docker restart <container_id>
+
+Удаление контейнера: docker rm <container_id>
+
+Удаление всех остановленных контейнеров: docker container prune
+
+Просмотр всех запущенных контейнеров: docker ps
+
+Просмотр всех контейнеров (включая остановленные): docker ps -a
+
+Просмотр логов контейнера: docker logs <container_id>
+
+Просмотр логов контейнера в режиме реального времени: docker logs -f <container_id>
 
 
 ## Примечания
